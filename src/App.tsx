@@ -5,6 +5,8 @@ import Menu from "./components/Menu";
 import AdvertsContainer from "./components/Adverts/AdvertsContainer";
 import "./styles/style.css";
 import Dashboard from "./components/Dashboard/Dashboard";
+import ManageAccount from "./components/Dashboard/ManageAccount";
+
 function App() {
   return (
     <div className="App">
@@ -13,6 +15,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/adverts" element={<AdvertsContainer />} />
         <Route path="/panel" element={<Dashboard />} />
+        <Route path="/panel/profile" element={<ManageAccount />} />
       </Routes>
     </div>
   );
