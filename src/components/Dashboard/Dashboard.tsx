@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom"; // وارد کردن Routes و Route
+import { Routes, Route } from "react-router-dom"; 
 import AccountInfo from "./AccountInfo";
 import DashboardHeader from "./DashboardHeader";
 import SettingsRouting from "./SettingsRouting";

@@ -6,6 +6,8 @@ import AdvertsContainer from "./components/Adverts/AdvertsContainer";
 import "./styles/style.css";
 import Dashboard from "./components/Dashboard/Dashboard";
 import ManageAccount from "./components/Dashboard/ManageAccount";
+import TransactionBox from "./components/Dashboard/TransactionBox";
+import AccountSetting from "./components/Dashboard/AccountSetting";
 
 function App() {
   return (
@@ -16,6 +18,13 @@ function App() {
         <Route path="/adverts" element={<AdvertsContainer />} />
         <Route path="/panel" element={<Dashboard />} />
         <Route path="/panel/profile" element={<ManageAccount />} />
+        <Route
+          path="/panel/profile/transaction-list"
+          element={<TransactionBox />}
+        />        <Route
+        path="/panel/profile/add-user"
+        element={<AccountSetting />}
+      />
       </Routes>
     </div>
   );
