@@ -26,9 +26,10 @@
   justify-content: center;
   gap: 5px;
 }
-.menu .menu-item img {
-  width: 20px;
-  height: 20px;
+.menu .menu-item svg {
+  
+  width: 25px;
+  height: 25px;
 }
 
 .menu .main-menu-item {

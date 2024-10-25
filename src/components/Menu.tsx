@@ -1,29 +1,34 @@
+import {
+  MdBookmarkBorder,
+  MdFace,
+  MdOutlineHome,
+  MdOutlineHomeWork,
+} from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const Menu = () => {
   return (
     <div className="menu">
       <Link to={"/"} className="menu-item">
-        <img src="/images/home-menu.png" alt="" />
+        <MdOutlineHome />
         <span>صفحه ی نخست</span>
+      </Link>{" "}
+      <Link to={"/adverts"} className="menu-item">
+        <MdOutlineHomeWork />
+        <span>اگهی ها</span>
       </Link>
-      <a href="#" className="menu-item">
-        <img src="/images/bookmark.png" alt="" />
-        <span>ذخیره ها</span>
-      </a>
       <a href="#" className="menu-item main-menu-item">
         <span>+</span>
       </a>
       <Link to="/panel" className="menu-item">
-        <img src="/images/user.png" alt="" />
+      <MdFace />
 
         <span>پنل کاربری</span>
       </Link>
-      <a href="#" className="menu-item">
-        {" "}
-        <img src="/images/online-support.png" alt="" />
-        <span>پشتیبانی</span>
-      </a>
+      <Link to={"/saved-adverts"} className="menu-item">
+        <MdBookmarkBorder />
+        <span>ذخیره ها</span>
+      </Link>
     </div>
   );
 };
