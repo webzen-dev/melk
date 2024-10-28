@@ -6,8 +6,8 @@ const DashboardHeader = () => {
   // If it has a new message, this will be true
   // Use useEffect to update the state when the component mounts
   useEffect(() => {
-    setNewMessage(true); // Simulate receiving a new message
-  }, []); // Empty dependency array means it runs once after the component mounts
+    setNewMessage(true);
+  }, []); 
   return (
     <div className="header">
       <div className="title">املاک یاس</div>

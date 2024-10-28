@@ -14,6 +14,7 @@ interface Transaction {
 }
 
 const TransactionBox: React.FC = () => {
+  
   const [transactions, setTransactions] = useState<Transaction[]>([
     {
       date: "1402-11-25",
@@ -30,7 +31,6 @@ const TransactionBox: React.FC = () => {
       isSuccess: false,
     },
   ]);
-
   const formatDate = (date: string): { day: string; month: string } => {
     const [year, month, day] = date.split("-").map(Number);
     const months = [
