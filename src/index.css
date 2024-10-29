@@ -10,8 +10,8 @@ a {
   text-decoration: none;
 }
 :root {
-  --orange: rgba(250, 166, 26, 1);
-  --sky-blue: rgb(80, 226, 240);
+  --orange: #9d70aa;
+  --sky-blue: rgb(211, 251, 255);
   --black: rgb(36, 36, 36);
   --navy-blue:#282c34;
   --white:#fff;

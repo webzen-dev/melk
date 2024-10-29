@@ -1,21 +1,22 @@
 import { Route, Routes } from "react-router-dom";
+import { useState } from "react";
 import "./App.css";
+import "./styles/style.css";
 import Home from "./components/home/Home";
 import Menu from "./components/Menu";
 import AdvertsContainer from "./components/Adverts/AdvertsContainer";
-import "./styles/style.css";
 import Dashboard from "./components/Dashboard/Dashboard";
 import ManageAccount from "./components/Dashboard/ManageAccount";
 import TransactionBox from "./components/Dashboard/TransactionBox";
 import AccountSetting from "./components/Dashboard/AccountSetting";
-import { useState } from "react";
 import HeroSection from "./components/HeroSection/HeroSection";
 import FirstPage from "./components/HeroSection/FirstPage";
 import StepTwo from "./components/HeroSection/StepTwo";
 import VerificationCode from "./components/HeroSection/VerificationCode";
+import DesktopHome from "./components/DesktopComponent/DesktopHome";
 
 function App() {
-  const [goToApp, setGoToApp] = useState(false);
+  const [goToApp, setGoToApp] = useState(true);
 
   return (
     <div className="App">
@@ -32,7 +33,10 @@ function App() {
           </Route>
         ) : (
           <>
-            <Route path="/" element={<Home />} />
+            {/* for desktop app : */}
+            <Route path="/" element={<DesktopHome />} />
+            {/* for mobile app :  */}
+            {/* <Route path="/" element={<Home />} /> */}
             <Route path="/adverts" element={<AdvertsContainer />} />
             <Route path="/panel" element={<Dashboard />} />
             <Route path="/panel/profile" element={<ManageAccount />} />
