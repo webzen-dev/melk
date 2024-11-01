@@ -14,10 +14,10 @@ import FirstPage from "./components/HeroSection/FirstPage";
 import StepTwo from "./components/HeroSection/StepTwo";
 import VerificationCode from "./components/HeroSection/VerificationCode";
 import DesktopHome from "./components/DesktopComponent/DesktopHome";
+import AdvertDetail from "./components/DesktopComponent/AdvertDetail";
 
 function App() {
   const [goToApp, setGoToApp] = useState(true);
-
   return (
     <div className="App">
       {goToApp && <Menu />}{" "}
@@ -35,6 +35,8 @@ function App() {
           <>
             {/* for desktop app : */}
             <Route path="/" element={<DesktopHome />} />
+            <Route path="/adverts/:code" element={<AdvertDetail />} />
+
             {/* for mobile app :  */}
             {/* <Route path="/" element={<Home />} /> */}
             <Route path="/adverts" element={<AdvertsContainer />} />

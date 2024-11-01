@@ -1,5 +1,6 @@
 import { CiSearch } from "react-icons/ci";
 import ListOfAdverts from "./ListOfAdverts";
+import AdLinks from "./AdLinks";
 
 const DesktopHome = () => {
   return (
@@ -7,7 +8,6 @@ const DesktopHome = () => {
       <div className="header">
         <span>ملک تراس</span>
         <span>ورود مشاورین و کارگزاران املاک</span>
-
       </div>
       <div className="desktop-container">
         <div className="title">بهترین و مناسب ترین خانه خود را پیدا کنید</div>
@@ -35,7 +35,6 @@ const DesktopHome = () => {
             <option value="">باغ ویلا</option>
           </select>
           <select>
-
             <option value="">کمتر از 100 متر</option>
             <option value="">بین 100 تا 150 متر</option>
             <option value="">بین 150 تا 200 متر </option>
@@ -43,12 +42,14 @@ const DesktopHome = () => {
             <option value="">بیشتر از 300 متر</option>
           </select>
           <div className="search">
-          <CiSearch />
-
+            <CiSearch />
           </div>
         </div>
       </div>
-      <ListOfAdverts/>
+      <div className="wrapper">
+        <ListOfAdverts />
+        <AdLinks />
+      </div>
     </div>
   );
 };
