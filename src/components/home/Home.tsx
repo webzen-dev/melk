@@ -13,6 +13,7 @@ import { IoDocumentAttachOutline } from "react-icons/io5";
 import { TiDocumentDelete } from "react-icons/ti";
 
 const Home = () => {
+  
   return (
     <div className="home-app">
       <div className="container">
@@ -37,7 +38,7 @@ const Home = () => {
             <TbHomeDollar />
           </div>
           <div className="item">
-            قرارداد های رهن و اجاره
+             رهن و اجاره
             <LiaFileContractSolid />
           </div>
         </div>
@@ -85,7 +86,13 @@ const Home = () => {
             <span>کد اکانت </span>
             <span>#23rfaef</span>
           </div>
-          
+          <div className="line-bar">
+            <div className="line" />
+          </div>
+          <div className="account-info">
+            <span>5 کاربره </span>
+            <span>1 ماه</span>
+          </div>
         </div>
       </div>
     </div>

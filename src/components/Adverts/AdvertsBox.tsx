@@ -8,6 +8,8 @@ import { useState, useEffect } from "react";
 import ShareFile from "./ShareFile";
 import Skeleton from "react-loading-skeleton";
 import CopyAlert from "./CopyAlert";
+import axios from "axios";
+import { IoBookmark } from "react-icons/io5";
 
 const AdvertsBox = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -15,6 +17,10 @@ const AdvertsBox = () => {
   const [expandedId, setExpandedId] = useState<number | null>(null);
   const [shareModal, setShareModal] = useState<boolean>(false);
   const [copyAlert, setCopyAlert] = useState<boolean>();
+  const [bookmarkedAds, setBookmarkedAds] = useState<{
+    [key: number]: boolean;
+  }>({});
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
@@ -22,6 +28,24 @@ const AdvertsBox = () => {
 
     return () => clearTimeout(timer);
   }, []);
+  const toggleBookmark = async (adId: number) => {
+    const newBookmarkedStatus = !bookmarkedAds[adId];
+    setBookmarkedAds((prevState) => ({
+      ...prevState,
+      [adId]: newBookmarkedStatus,
+    }));
+
+    try {
+      await axios.post("https://jsonplaceholder.typicode.com/posts", {
+        adId,
+        bookmarked: newBookmarkedStatus,
+      });
+      console.log("Bookmark status sent to API");
+    } catch (error) {
+      console.error("Error sending bookmark status to API:", error);
+    }
+  };
+
   const data = [
     {
       id: 1,
@@ -324,15 +348,15 @@ const AdvertsBox = () => {
                 </div>
               )}
               <div className="cta-box">
-                <span>
-                  <CiBookmark />
+                <span onClick={() => toggleBookmark(item.id)}>
+                  {bookmarkedAds[item.id] ? <IoBookmark /> : <CiBookmark />}
                 </span>
                 <span onClick={() => setShareModal(!shareModal)}>
                   <BsFillShareFill />
                 </span>
-                {shareModal && (
-                  <ShareFile onClose={() => setShareModal(false)} />
-                )}
+                {shareModal &&
+                  // <ShareFile onClose={() => setShareModal(false)} />
+                  ""}
                 <button onClick={() => setShowNumberModal(!showNumberModal)}>
                   نمایش شماره
                 </button>

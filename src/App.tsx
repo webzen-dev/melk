@@ -15,6 +15,7 @@ import StepTwo from "./components/HeroSection/StepTwo";
 import VerificationCode from "./components/HeroSection/VerificationCode";
 import DesktopHome from "./components/DesktopComponent/DesktopHome";
 import AdvertDetail from "./components/DesktopComponent/AdvertDetail";
+import TickerContainer from "./components/Tickets/TicketsContainer";
 
 function App() {
   const [goToApp, setGoToApp] = useState(true);
@@ -34,11 +35,11 @@ function App() {
         ) : (
           <>
             {/* for desktop app : */}
-            <Route path="/" element={<DesktopHome />} />
+            {/* <Route path="/" element={<DesktopHome />} /> */}
             <Route path="/adverts/:code" element={<AdvertDetail />} />
 
             {/* for mobile app :  */}
-            {/* <Route path="/" element={<Home />} /> */}
+            <Route path="/" element={<Home />} />
             <Route path="/adverts" element={<AdvertsContainer />} />
             <Route path="/panel" element={<Dashboard />} />
             <Route path="/panel/profile" element={<ManageAccount />} />
@@ -50,6 +51,7 @@ function App() {
               path="/panel/profile/add-user"
               element={<AccountSetting />}
             />
+            <Route path="/panel/tickets" element={<TickerContainer />} />
           </>
         )}
       </Routes>

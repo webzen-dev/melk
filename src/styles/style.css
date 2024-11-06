@@ -535,7 +535,25 @@
   justify-content: center;
   border-left: 1px solid #cacaca;
   border-top: 1px solid #cacaca;
+  cursor: pointer;
   padding: 10px;
+}.advert-box .advert-item .cta-box span svg{
+animation: 400ms saved ease-in-out;
+}
+@keyframes saved {
+  0%{
+    scale: 0;
+    opacity: 0;
+  }
+  100%{
+    scale: 1;
+    opacity: 1;
+  }
+}
+.selecting-social-media{
+  width: 100%;
+  height: 100vh;
+  
 }
 .advert-box .advert-item .cta-box > button {
   flex: 1;
@@ -2054,7 +2072,7 @@
 .ticket-container {
   background: #f1f1f195;
   min-height: 100vh;
-  direction: rtl  ;
+  direction: rtl;
 }
 .ticket-container .ticket-list {
   display: flex;
@@ -2159,10 +2177,10 @@
   animation: chatModal 500ms ease-in-out;
 }
 @keyframes chatModal {
-  0%{
+  0% {
     scale: 0;
   }
-  100%{
+  100% {
     scale: 1;
   }
 }
@@ -2171,12 +2189,11 @@
   gap: 10px;
   align-items: center;
   padding: 20px;
-  
+
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   display: flex;
 }
 .ticket-modal .box .header svg {
-
   cursor: pointer;
 }
 .ticket-modal .box .header .title {
@@ -2204,7 +2221,7 @@
 .ticket-modal .box .message-box .message.admin-message .text {
   border-radius: 20px 20px 20px 0;
   background: #004953;
-  }
+}
 .ticket-modal .box .message-box .message .text {
   background: gray;
 
@@ -2234,16 +2251,16 @@
   .ticket-container .ticket-list .header-list {
     min-width: 900px;
   }
-  .ticket-container .ticket-list  {
+  .ticket-container .ticket-list {
     overflow-x: auto;
   }
-  .ticket-container .ticket-list  .list{
+  .ticket-container .ticket-list .list {
     min-width: 900px;
   }
-  .ticket-container .ticket-list .list .message{
+  .ticket-container .ticket-list .list .message {
     /* min-width: 900px; */
   }
-  .ticket-modal .box{
+  .ticket-modal .box {
     height: 90%;
   }
   .ticket-modal {
@@ -2252,11 +2269,9 @@
   }
   .home-page .home-container {
     height: 50vh;
-
   }
   .ticket-modal {
     padding: 0;
-    
   }
   .home-file-list {
     padding: 0 1rem;
@@ -2374,4 +2389,166 @@
   .desktop-home .desktop-container .filter {
     width: calc(100% - 2rem);
   }
+}
+.home-app {
+  width: 100%;
+  min-height: 100vh;
+  padding: 10px;
+  direction: rtl;
+  background: #dbd3d3;
+  padding-bottom: 90px;
+}
+.home-app .container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+.home-app .container .profile {
+  display: flex;
+  width: 100%;
+  background: #091057;
+  height: 70px;
+  border-radius: 20px;
+  gap: 20px;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+}
+.home-app .container .profile svg {
+  font-size: 2rem;
+}
+.home-app .container .profile .user {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+}
+.home-app .container .container-box {
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  height: 140px;
+}
+
+.home-app .container .container-box .item {
+  width: calc(50% - 5px);
+  background: #024caa;
+  height: calc(50% - 5px);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  border-radius: 20px;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+.home-app .container .container-box .item svg {
+  font-size: 1.5rem;
+}
+.home-app .container > button {
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  color: #dbd3d3;
+  height: 50px;
+  background: #ec8305;
+}
+.home-app .container .input-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 50px;
+  margin: 10px 0;
+  border: 2px solid #ec8305;
+  border-radius: 30px;
+}
+.home-app .container .input-box input {
+  flex: 1;
+  padding: 10px;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: none;
+}
+.home-app .container .input-box input::placeholder {
+  color: #ec8305;
+}
+.home-app .container .input-box svg {
+  width: 50px;
+  height: 50px;
+  color: #ec8305;
+  padding: 10px;
+  border-radius: 50%;
+}
+.home-app .container .filing-lits {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0;
+}
+.home-app .container .filing-lits .title {
+  font-size: 1.5rem;
+}
+
+.home-app .container .filing-lits .box {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+.home-app .container .filing-lits .box .item {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  border-radius: 20px;
+  color: #dbd3d3;
+  background: #024caa;
+}
+.home-app .container .filing-lits .box .item svg {
+  font-size: 1.5rem;
+}
+.home-app .container .account {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px 0;
+  gap: 10px;
+  background: #091057;
+  color: #dbd3d3;
+  border-radius: 20px;
+}
+
+.home-app .container .account > .box,
+.home-app .container .account > .code,
+.home-app .container .account > .account-info {
+  justify-content: space-between;
+  padding: 10px;
+  display: flex;
+  font-size: 1rem;
+  align-items: center;
+}
+.home-app .container .account .line-bar {
+  position: relative;
+  height: 5px;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 20px;
+  background: #ec840575;
+}
+.home-app .container .account .line-bar .line {
+  position: absolute;
+  border-radius: 20px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 40%;
+  background: #ec8305;
+  height: 5px;
 }
