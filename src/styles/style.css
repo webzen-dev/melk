@@ -2054,6 +2054,7 @@
 .ticket-container {
   background: #f1f1f195;
   min-height: 100vh;
+  direction: rtl  ;
 }
 .ticket-container .ticket-list {
   display: flex;
@@ -2129,10 +2130,11 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 .ticket-modal {
-  width: 100%;
   height: 100vh;
+  width: 100%;
   position: fixed;
   z-index: 111;
+
   top: 0;
   bottom: 0;
   left: 0;
@@ -2143,7 +2145,6 @@
   align-items: center;
   justify-content: center;
   padding: 40px;
-  /* padding-bottom: 100px; */
   z-index: 223344;
 }
 .ticket-modal .box {
@@ -2155,17 +2156,28 @@
   flex-direction: column;
   background: #fff;
   direction: rtl;
+  animation: chatModal 500ms ease-in-out;
+}
+@keyframes chatModal {
+  0%{
+    scale: 0;
+  }
+  100%{
+    scale: 1;
+  }
 }
 .ticket-modal .box .header {
   width: 100%;
   gap: 10px;
   align-items: center;
   padding: 20px;
+  
   border-bottom: 1px solid rgba(0, 0, 0, 0.4);
   display: flex;
 }
 .ticket-modal .box .header svg {
-  color: rgba(0, 0, 0, 0.4);
+
+  cursor: pointer;
 }
 .ticket-modal .box .header .title {
   flex: 1;
@@ -2177,6 +2189,7 @@
   max-height: calc(100% - 100px);
   padding: 20px;
   overflow-y: auto;
+  flex: 1;
 }
 .ticket-modal .box .message-box .message {
   max-width: 70%;
@@ -2186,13 +2199,15 @@
 }
 .ticket-modal .box .message-box .message.admin-message {
   align-self: flex-end;
+  max-width: 70%;
 }
 .ticket-modal .box .message-box .message.admin-message .text {
   border-radius: 20px 20px 20px 0;
   background: #004953;
-}
+  }
 .ticket-modal .box .message-box .message .text {
   background: gray;
+
   color: #fff;
   padding: 20px;
   border-radius: 20px 20px 0 20px;
@@ -2214,11 +2229,34 @@
   height: 100%;
   border: none;
   outline: none;
-  /* background: var(--white); */
 }
 @media screen and (max-width: 820px) {
+  .ticket-container .ticket-list .header-list {
+    min-width: 900px;
+  }
+  .ticket-container .ticket-list  {
+    overflow-x: auto;
+  }
+  .ticket-container .ticket-list  .list{
+    min-width: 900px;
+  }
+  .ticket-container .ticket-list .list .message{
+    /* min-width: 900px; */
+  }
+  .ticket-modal .box{
+    height: 90%;
+  }
+  .ticket-modal {
+    align-items: start;
+    background: #fff;
+  }
   .home-page .home-container {
     height: 50vh;
+
+  }
+  .ticket-modal {
+    padding: 0;
+    
   }
   .home-file-list {
     padding: 0 1rem;
