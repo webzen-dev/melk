@@ -60,7 +60,7 @@ const TickerContainer: React.FC = () => {
   return (
     <div className="ticket-container">
       <div className="header">
-        <Link to={"/panel/profile"}>
+        <Link to={"/panel/"}>
           <GrNext />
         </Link>
         <span>تیکت ها</span>

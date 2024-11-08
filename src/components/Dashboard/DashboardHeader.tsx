@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaRegBell } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const DashboardHeader = () => {
   const [newMessage, setNewMessage] = useState<boolean>(false);
@@ -7,13 +8,15 @@ const DashboardHeader = () => {
   // Use useEffect to update the state when the component mounts
   useEffect(() => {
     setNewMessage(true);
-  }, []); 
+  }, []);
   return (
     <div className="header">
       <div className="title">املاک یاس</div>
       <div className="ticket">
         {newMessage && <div className="sticker" />}
-        <span>تیکت ها</span>
+        <Link to={"/panel/tickets"}>
+          <span>تیکت ها</span>
+        </Link>
         <FaRegBell />
       </div>
     </div>
