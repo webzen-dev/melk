@@ -417,6 +417,8 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  /* direction: ltr; */
+  /* flex-direction: row-reverse; */
   border-radius: 16px;
   height: 264px;
   position: relative;
@@ -430,6 +432,7 @@
   gap: 10px;
   padding: 15px;
   flex: 1;
+  flex-direction: row-reverse;
   justify-content: space-between;
 }
 .advert-box .advert-item .first-section .description-box {
@@ -526,6 +529,8 @@
 .advert-box .advert-item .cta-box {
   display: flex;
   width: 100%;
+
+  flex-direction: row-reverse;
   /* z-index: 223; */
 }
 .advert-box .advert-item .cta-box > span {
@@ -533,7 +538,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-left: 1px solid #cacaca;
+  border-right: 1px solid #cacaca;
   border-top: 1px solid #cacaca;
   cursor: pointer;
   padding: 10px;
@@ -571,7 +576,7 @@
 .advert-box .advert-item .cta-box > button:last-child {
   background: var(--orange);
   color: var(--white);
-  border-radius: 0 0 0 16px;
+  border-radius: 0 0 16px 0;
 }
 .advert-box .advert-item .image-box {
   display: flex;

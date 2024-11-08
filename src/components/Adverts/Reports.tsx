@@ -2,7 +2,7 @@ import React from "react";
 import { IoMdClose } from "react-icons/io";
 
 type RepProps = {
-  onClose: () => void;  // تعریف صحیح نوع تابع
+  onClose: () => void;
 };
 
 const Reports: React.FC<RepProps> = ({ onClose }) => {
@@ -11,7 +11,6 @@ const Reports: React.FC<RepProps> = ({ onClose }) => {
       <div className="box">
         <div className="header">
           <span>کلید ارسال گزارش</span>
-          {/* فراخوانی صحیح onClose */}
           <IoMdClose onClick={() => onClose()} /> 
         </div>
         <div className="child-box">
