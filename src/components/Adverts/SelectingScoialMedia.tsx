@@ -1,54 +1,73 @@
-import React from "react";
+import { useState } from "react";
+import { BsLink45Deg } from "react-icons/bs";
+import { IoMdClose } from "react-icons/io";
+import CopyAlert from "./CopyAlert";
 
-type SelectingSocialMediaProps = {
-  link: string;
+type ShareFileProps = {
   onClose: () => void;
 };
 
-const SelectingSocialMedia: React.FC<SelectingSocialMediaProps> = ({
-  link,
-  onClose,
-}) => {
-  const shareOnWhatsApp = `https://wa.me/?text=${link}`;
-  const shareOnTelegram = `https://t.me/share/url?url=${link}`;
-  const shareOnTwitter = `https://twitter.com/intent/tweet?text=${link}`;
+const SelectingSocialMedia: React.FC<ShareFileProps> = ({ onClose }) => {
+  const [link] = useState<string>("https://www.example.com");
+  const [showAlert, setShowAlert] = useState<boolean>(false);
+
+  const copyLink = () => {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard
+        .writeText(link)
+        .then(() => setShowAlert(true))
+        .catch((err) => console.error("کپی کردن لینک موفقیت‌آمیز نبود:", err));
+    } else {
+      const textArea = document.createElement("textarea");
+      textArea.value = link;
+      document.body.appendChild(textArea);
+      textArea.select();
+      try {
+        document.execCommand("copy");
+        setShowAlert(true);
+      } catch (err) {
+        console.error("کپی کردن لینک موفقیت‌آمیز نبود:", err);
+      }
+      document.body.removeChild(textArea);
+    }
+  };
 
   return (
-    <div className="selecting-social-media">
-      <div className="title">انتخاب رسانه اجتماعی</div>
-      <div className="box">
-        <a
-          href={shareOnWhatsApp}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="item"
-        >
-          WhatsApp
-        </a>
-        <a
-          href={shareOnTelegram}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="item"
-        >
-          Telegram
-        </a>
-        <a
-          href={shareOnTwitter}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="item"
-        >
-          Twitter
-        </a>
+    <div className="box s">
+      <div className="selecting-social-media">
+        <div className="title">
+          اشتراک‌گذاری در شبکه‌های اجتماعی
+          <IoMdClose onClick={() => onClose()} />
+        </div>
+        <div className="items">
+          <a href="#" className="item">
+            <img src="/images/social-mdia/eitaa.png" alt="" />
+            <span>ایتا</span>
+          </a>
+          <a href="#" className="item">
+            <img src="/images/social-mdia/robika.png" alt="" />
+            <span>روبیکا</span>
+          </a>
+          <a href="#" className="item">
+            <img src="/images/social-mdia/telegram.png" alt="" />
+            <span>تلگرام</span>
+          </a>
+          <a href="#" className="item">
+            <img src="/images/social-mdia/whatsapp.png" alt="" />
+            <span>واتساپ</span>
+          </a>
+          <a href="#" className="item main">
+            <img src="/images/social-mdia/instagram.png" alt="" />
+            <span>اینستاگرام</span>
+          </a>
+        </div>
+        <div className="link-box">
+          <BsLink45Deg />
+          <a href={link}>{link}</a>
+        </div>
+        <button onClick={copyLink}>کپی کردن لینک</button>
+        {showAlert && <CopyAlert text={"لینک"} />} {/* نمایش CopyAlert */}
       </div>
-      <div className="link-box">
-        <span>لینک اشتراک‌گذاری:</span>
-        <a href={link} target="_blank" rel="noopener noreferrer">
-          {link}
-        </a>
-      </div>
-      <button onClick={onClose}>بستن</button>
     </div>
   );
 };

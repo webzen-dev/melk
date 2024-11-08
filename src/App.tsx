@@ -18,7 +18,7 @@ import AdvertDetail from "./components/DesktopComponent/AdvertDetail";
 import TickerContainer from "./components/Tickets/TicketsContainer";
 
 function App() {
-  const [goToApp, setGoToApp] = useState(false);
+  const [goToApp, setGoToApp] = useState(true);
   return (
     <div className="App">
       {goToApp && <Menu />}{" "}

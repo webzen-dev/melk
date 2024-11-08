@@ -10,12 +10,14 @@ import Skeleton from "react-loading-skeleton";
 import CopyAlert from "./CopyAlert";
 import axios from "axios";
 import { IoBookmark } from "react-icons/io5";
+import Reports from "./Reports";
 
 const AdvertsBox = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [showNumberModal, setShowNumberModal] = useState<boolean>(false);
   const [expandedId, setExpandedId] = useState<number | null>(null);
   const [shareModal, setShareModal] = useState<boolean>(false);
+  const [report, setReport] = useState<boolean>(false);
   const [copyAlert, setCopyAlert] = useState<boolean>();
   const [bookmarkedAds, setBookmarkedAds] = useState<{
     [key: number]: boolean;
@@ -183,7 +185,7 @@ const AdvertsBox = () => {
   };
   return (
     <div className="advert-box">
-      {copyAlert && <CopyAlert />}
+      {copyAlert && <CopyAlert text={"شماره تلفن "} />}
       {isLoading
         ? renderSkeleton()
         : data.map((item) => (
@@ -342,9 +344,13 @@ const AdvertsBox = () => {
                       وضعیت سند : <span> {item.documentStatus}</span>
                     </div>
                   </div>
-                  <button className="report-btn">
+                  <button
+                    className="report-btn"
+                    onClick={() => setReport(!report)}
+                  >
                     ارسال گزارش به پشتیبانی
                   </button>
+                  {report && <Reports onClose={()=>setReport(false)} />}
                 </div>
               )}
               <div className="cta-box">
@@ -354,9 +360,9 @@ const AdvertsBox = () => {
                 <span onClick={() => setShareModal(!shareModal)}>
                   <BsFillShareFill />
                 </span>
-                {shareModal &&
-                  // <ShareFile onClose={() => setShareModal(false)} />
-                  ""}
+                {shareModal && (
+                  <ShareFile onClose={() => setShareModal(false)} />
+                )}{" "}
                 <button onClick={() => setShowNumberModal(!showNumberModal)}>
                   نمایش شماره
                 </button>
