@@ -2712,29 +2712,28 @@
   background: #fff;
   display: flex;
   flex-direction: column;
-  /* height: 440px; */
   width: 440px;
   border-radius: 20px;
   position: absolute;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
   animation: modal 300ms ease-in-out;
 }
-@media screen and (max-width:780px) {
+@media screen and (max-width: 780px) {
   .reports-page > .box {
     width: calc(100% - 20px);
   }
-  
 }
-.reports-page > .box .header{
+.reports-page > .box .header {
   width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}.reports-page > .box .header svg{
+}
+.reports-page > .box .header svg {
   font-size: 1.5rem;
 }
-.reports-page > .box .child-box{
+.reports-page > .box .child-box {
   display: flex;
   gap: 10px;
   width: 100%;
@@ -2742,18 +2741,102 @@
   justify-content: center;
   flex-direction: row;
   flex-wrap: wrap;
-
 }
-.reports-page > .box .child-box .item{
-display: flex;
-align-items: center;
-justify-content: center;
-height: 50px;
-border-radius: 25px;
+.reports-page > .box .child-box .item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border-radius: 25px;
+  cursor: pointer;
   width: calc(50% - 10px);
   background: rgba(0, 0, 0, 0.1);
 }
-@keyframes modal {
+
+.report-input {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+  /* backdrop-filter: blur(10px); */
+  z-index: 22338  ;
+}
+.report-input > .box {
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 440px;
+  height: 295px;
+  min-width: 300px;
+  animation: modal 500ms ease-in-out;
+  position: relative;
+  justify-content: space-between;
+
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  gap: 20px;
+  padding: 10px;
+}
+.report-input > .box .title {
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+.report-input > .box .title svg {
+  color: rgb(129, 3, 3);
+}
+.report-input > .box .child-box {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 0;
+}
+.report-input > .box .child-box span:last-child {
+  background: rgba(0, 0, 0, 0.2);
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 10px;
+}
+.report-input > .box textarea {
+  resize: none;
+  width: 100%;
+  /* height: 100px; */
+  flex: 1;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+.report-input > .box button{
+border: none;
+background: rgb(89, 0, 0);
+height: 30px;
+color: #fff;
+outline: none;
+border-radius: 10px;
+}
+.report-input .close-button{
+color: #000;
+cursor: pointer;
+}
+.report-input .title span{
+  flex: 1;
+}@keyframes modal {
   from {
     bottom: -100%;
     opacity: 0;

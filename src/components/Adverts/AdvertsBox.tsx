@@ -17,7 +17,7 @@ const AdvertsBox = () => {
   const [showNumberModal, setShowNumberModal] = useState<boolean>(false);
   const [expandedId, setExpandedId] = useState<number | null>(null);
   const [shareModal, setShareModal] = useState<boolean>(false);
-  const [report, setReport] = useState<boolean>(false);
+  const [report, setReport] = useState<boolean>(true);
   const [copyAlert, setCopyAlert] = useState<boolean>();
   const [bookmarkedAds, setBookmarkedAds] = useState<{
     [key: number]: boolean;
