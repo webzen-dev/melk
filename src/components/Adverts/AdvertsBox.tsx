@@ -11,14 +11,16 @@ import CopyAlert from "./CopyAlert";
 import axios from "axios";
 import { IoBookmark } from "react-icons/io5";
 import Reports from "./Reports";
+import ImageSlider from "./ImageSlider";
 
 const AdvertsBox = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [showNumberModal, setShowNumberModal] = useState<boolean>(false);
   const [expandedId, setExpandedId] = useState<number | null>(null);
   const [shareModal, setShareModal] = useState<boolean>(false);
-  const [report, setReport] = useState<boolean>(true);
+  const [report, setReport] = useState<boolean>(false);
   const [copyAlert, setCopyAlert] = useState<boolean>();
+  const [showImageSlider, setShowImageSlider] = useState<any>(null);
   const [bookmarkedAds, setBookmarkedAds] = useState<{
     [key: number]: boolean;
   }>({});
@@ -47,7 +49,12 @@ const AdvertsBox = () => {
       console.error("Error sending bookmark status to API:", error);
     }
   };
-
+  const imageSlider = (img: any) => {
+    setShowImageSlider(img);
+  };const closeSlider = () => {
+    setShowImageSlider(null);
+  };
+  
   const data = [
     {
       id: 1,
@@ -58,7 +65,7 @@ const AdvertsBox = () => {
       bedrooms: 3,
       floor: 2,
       publicationDate: "1402-07-10",
-      images: ["/images/1.jpg", "/images/2.jpg"],
+      images: ["/images/1.jpg", "/images/2.jpe  g"],
       amenities: [
         { name: "elevator", available: true },
         { name: "parking", available: true },
@@ -83,7 +90,7 @@ const AdvertsBox = () => {
       bedrooms: 3,
       floor: 2,
       publicationDate: "1402-07-10",
-      images: ["/images/1.jpg", "/images/2.jpg"],
+      images: ["/images/1.jpg", "/images/2.jpeg"],
       amenities: [
         { name: "elevator", available: true },
         { name: "parking", available: true },
@@ -109,7 +116,12 @@ const AdvertsBox = () => {
       bedrooms: 3,
       floor: 2,
       publicationDate: "1402-07-10",
-      images: ["/images/1.jpg", "/images/2.jpg"],
+      images: [
+        "/images/1.jpg",
+        "/images/2.jpeg",
+        "/images/3.jpeg",
+        "/images/5.jpeg",
+      ],
       amenities: [
         { name: "elevator", available: true },
         { name: "parking", available: true },
@@ -243,12 +255,27 @@ const AdvertsBox = () => {
                     </div>
                   </div>
                 </div>
-                <div className="image-box">
-                  <img src="images/1.jpg" alt="" />
-                  <div className="box">
-                    <span>{item.images.length}</span>
-                    <BsCamera />
-                  </div>
+                {showImageSlider && <ImageSlider images={showImageSlider} onClose={closeSlider} />}
+                <div
+                  className="image-box"
+                  onClick={() => imageSlider(item.images)}
+                >
+                  <img
+                    src={
+                      item.images && item.images.length > 0
+                        ? item.images[0]
+                        : "/images/no-image.jpg"
+                    }
+                    alt={item.description}
+                  />
+                  {item.images.length === 0 ? (
+                    ""
+                  ) : (
+                    <div className="box">
+                      <span>{item.images.length}</span>
+                      <BsCamera />
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="info-box">
@@ -350,7 +377,7 @@ const AdvertsBox = () => {
                   >
                     ارسال گزارش به پشتیبانی
                   </button>
-                  {report && <Reports onClose={()=>setReport(false)} />}
+                  {report && <Reports onClose={() => setReport(false)} />}
                 </div>
               )}
               <div className="cta-box">
