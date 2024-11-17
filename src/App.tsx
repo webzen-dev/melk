@@ -35,11 +35,11 @@ function App() {
         ) : (
           <>
             {/* for desktop app : */}
-            {/* <Route path="/" element={<DesktopHome />} /> */}
+            <Route path="/" element={<DesktopHome />} />
             <Route path="/adverts/:code" element={<AdvertDetail />} />
 
             {/* for mobile app :  */}
-            <Route path="/" element={<Home />} />
+            {/* <Route path="/" element={<Home />} /> */}
             <Route path="/adverts" element={<AdvertsContainer />} />
             <Route path="/panel" element={<Dashboard />} />
             <Route path="/panel/profile" element={<ManageAccount />} />

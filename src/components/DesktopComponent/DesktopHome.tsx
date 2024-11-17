@@ -5,11 +5,11 @@ import AdLinks from "./AdLinks";
 const DesktopHome = () => {
   return (
     <div className="desktop-home">
+      <div className="desktop-container">
       <div className="header">
         <span>ملک تراس</span>
         <span>ورود مشاورین و کارگزاران املاک</span>
       </div>
-      <div className="desktop-container">
         <div className="title">بهترین و مناسب ترین خانه خود را پیدا کنید</div>
         <div className="filter">
           <select>
